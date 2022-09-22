@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Meteo</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <h1>Choisissez la météo de votre ville</h1>
+    <div id="input-block">
+      <input type="text" name="city" id="city-input" placeholder="Ville" />
+      <button class="meteo-btn">Météo</button>
+    </div>
+    <div class="container disabled">
+      <div id="result">
+        <ul class="list">
+          <li class="city"></li>
+          <li class="weather">
+            <img class="weatherImg" src="" alt="Temps de la ville" />
+          </li>
+          <li class="tmp"></li>
+        </ul>
+      </div>
+      <span class="error disabled"
+        >Cette ville n'est pas dans la base de données</span
+      >
+    </div>
+  </body>
+</html>
