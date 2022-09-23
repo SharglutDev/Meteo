@@ -21,21 +21,27 @@ const fetchMeteo = async () => {
   return data;
 };
 
-// const fetchImg = (data) => {
-//   const isTHereAnImg = document.querySelector("img");
-//   if (isTHereAnImg) isTHereAnImg.remove();
-//   const img = document.createElement("img");
-//   img.src = `${data}`;
-//   weather.appendChild(img);
-// };
-
 // ******* CHANGE CITY ********
 
 fetchMeteoBtn.addEventListener("click", () => {
   if (container.classList.contains("disabled")) {
     container.classList.toggle("disabled");
   }
-  fetchMeteo().then((data) => {
+  // fetchMeteo().then((data) => {
+  //   if (data.errors) {
+  //     error.classList.remove("disabled");
+  //     result.classList.add("disabled");
+  //   } else {
+  //     error.classList.add("disabled");
+  //     result.classList.remove("disabled");
+  //     city.innerHTML = `${data.city_info.name}`;
+  //     // fetchImg(data.current_condition.icon_big);
+  //     weatherIcon.src = data.current_condition.icon_big;
+  //     temp.innerHTML = `${data.current_condition.tmp}°C`;
+  //   }
+  // });
+  const getMeteoData = async () => {
+    const data = await fetchMeteo();
     if (data.errors) {
       error.classList.remove("disabled");
       result.classList.add("disabled");
@@ -47,7 +53,8 @@ fetchMeteoBtn.addEventListener("click", () => {
       weatherIcon.src = data.current_condition.icon_big;
       temp.innerHTML = `${data.current_condition.tmp}°C`;
     }
-  });
+  };
+  getMeteoData();
 });
 
 input.addEventListener("keypress", (e) => {
